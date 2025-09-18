@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editkaro.in - Professional Video Production & Digital Marketing Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0f0f0f;
+            overflow-x: hidden;
+        }
+
+        /* Subtle background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(30, 144, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 3rem;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-accent {
+            color: #1e90ff;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: #1e90ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: #1e90ff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            background: #4169e1;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.03) 0%, rgba(138, 43, 226, 0.02) 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(30, 144, 255, 0.1);
+            color: #1e90ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(30, 144, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, #1e90ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1e90ff;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: #4169e1;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 5rem 3rem;
+            background: rgba(20, 20, 20, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e90ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(30, 144, 255, 0.1);
+            color: #1e90ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(30, 144, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 2rem 3rem 0;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #1e90ff;
+            border-color: #1e90ff;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Portfolio Grid */
+        .portfolio {
+            padding: 4rem 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            background: rgba(25, 25, 25, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(30, 144, 255, 0.3);
+        }
+
+        .item-thumbnail {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(138, 43, 226, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thumbnail-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .play-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            margin: 0 auto 1rem;
+        }
+
+        .portfolio-item:hover .play-icon {
+            background: #1e90ff;
+            border-color: #1e90ff;
+            transform: scale(1.1);
+        }
+
+        .thumbnail-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 144, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        .item-content {
+            padding: 2rem;
+        }
+
+        .item-category {
+            background: rgba(30, 144, 255, 0.1);
+            color: #1e90ff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .item-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .item-metrics {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(25, 25, 25, 0.95);
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 90%;
+            max-height: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            max-width: 800px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #1e90ff;
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-category {
+            color: #1e90ff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .modal-video-preview {
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(138, 43, 226, 0.05));
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 3rem;
+            background: rgba(20, 20, 20, 0.8);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .testimonial-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e90ff, #8a2be2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-info h4 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 15, 0.95);
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            color: #1e90ff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #1e90ff;
+            border-color: #1e90ff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .services-section,
+            .portfolio {
+                padding: 3rem 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Editkaro<span class="logo-accent">.in</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-nav">Get Quote</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">🏆 Award-Winning Agency</div>
+            <h1>Premium <span class="hero-highlight">Video Production</span><br>& Digital Marketing Solutions</h1>
+            <p>We transform brands through cinematic storytelling and data-driven marketing strategies. Trusted by Fortune 500 companies and innovative startups worldwide.</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn-primary">
+                    <span>View Our Work</span>
+                    <span>→</span>
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <span>Start Your Project</span>
+                    <span>📞</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3>50M+</h3>
+                <p>Views Generated</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Support Available</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <div class="section-badge">Our Expertise</div>
+            <h2 class="section-title">Professional Video Production Services</h2>
+            <p class="section-description">From concept to delivery, we provide end-to-end video production and digital marketing solutions that drive measurable results for your business.</p>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Services</button>
+                <button class="filter-btn" data-filter="short-form">Short-Form Content</button>
+                <button class="filter-btn" data-filter="long-form">Corporate Videos</button>
+                <button class="filter-btn" data-filter="gaming">Gaming Content</button>
+                <button class="filter-btn" data-filter="football">Sports Editing</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce Ads</button>
+                <button class="filter-btn" data-filter="documentary">Documentaries</button>
+                <button class="filter-btn" data-filter="color-grading">Color Grading</button>
+                <button class="filter-btn" data-filter="anime">Animation</button>
+                <button class="filter-btn" data-filter="ads">Advertisements</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- Portfolio items will be dynamically generated -->
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <div class="section-badge">Client Success Stories</div>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-description">Don't just take our word for it. Here's what industry leaders say about our work.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Editkaro.in transformed our brand's digital presence with their exceptional video content. Our engagement increased by 300% within the first month."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Marketing Director, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"The quality of their work is unmatched. Every project is delivered on time with cinematic quality that exceeds expectations."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div class="author-info">
+                            <h4>Raj Patel</h4>
+                            <p>CEO, Digital Innovations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Professional, creative, and results-driven. Editkaro.in is our go-to partner for all video marketing needs."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Anita Kumar</h4>
+                            <p>Brand Manager, RetailPlus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>Ready to Elevate Your Brand?</h3>
+            <p>Let's discuss how we can bring your vision to life with professional video production and strategic marketing solutions.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Phone</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>hello@editkaro.in</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Address</h4>
+                    <p>Mumbai, Maharashtra, India</p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="Instagram">📸</a>
+                <a href="#" title="YouTube">📺</a>
+                <a href="#" title="Behance">🎨</a>
+                <a href="#" title="Email">📧</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Editkaro.in - All rights reserved. Professional Video Production & Digital Marketing Agency</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Professional portfolio data with detailed metrics
+        const portfolioData = [
+            {
+                id: 1,
+                title: "Social Media Content Strategy - TechStart",
+                category: "short-form",
+                description: "Complete social media transformation for a B2B SaaS startup, resulting in 500% increase in qualified leads.",
+                thumbnail: "📱",
+                metrics: { views: "2.3M", engagement: "12.4%", conversion: "8.2%" },
+                details: "Developed and executed a comprehensive 3-month social media strategy including 60+ short-form videos across Instagram Reels, LinkedIn, and YouTube Shorts. Achieved viral status with 3 videos reaching over 500K views each.",
+                client: "TechStart Solutions",
+                duration: "3 months",
+                team: "Creative Director, 2 Video Editors, Social Media Strategist"
+            },
+            {
+                id: 2,
+                title: "Corporate Documentary - Fortune 500",
+                category: "long-form",
+                description: "Executive documentary series showcasing company culture and innovation for internal and external communications.",
+                thumbnail: "🎬",
+                metrics: { runtime: "45 min", locations: "12", interviews: "25" },
+                details: "Produced a comprehensive documentary series featuring C-suite executives, highlighting company culture and innovation. Shot across 12 international locations with a 15-person crew. Delivered in 4K with multi-language subtitles.",
+                client: "Confidential Fortune 500 Company",
+                duration: "6 months",
+                team: "Director of Photography, 3 Camera Operators, Sound Engineer, Post-Production Team"
+            },
+            {
+                id: 3,
+                title: "Esports Tournament Broadcast - GameCon 2024",
+                category: "gaming",
+                description: "Live multi-camera esports tournament production with real-time graphics and audience engagement features.",
+                thumbnail: "🎮",
+                metrics: { viewers: "150K", hours: "48", cameras: "8" },
+                details: "Managed complete production of 48-hour esports tournament featuring 8-camera setup, live graphics package, instant replays, and social media integration. Achieved peak concurrent viewership of 150K across multiple platforms.",
+                client: "GameCon Events",
+                duration: "2 months prep + 3 days live",
+                team: "Broadcast Director, Technical Director, 4 Camera Operators, Graphics Specialist"
+            },
+            {
+                id: 4,
+                title: "Premier League Content Partnership",
+                category: "football",
+                description: "Weekly highlight packages and social content for official Premier League partner, reaching millions of football fans globally.",
+                thumbnail: "⚽",
+                metrics: { episodes: "38", reach: "25M", languages: "5" },
+                details: "Created weekly match highlights, player profiles, and behind-the-scenes content for entire Premier League season. Content distributed across 15 countries in 5 languages with localized graphics and commentary.",
+                client: "Premier League Official Partner",
+                duration: "10 months",
+                team: "Sports Director, 6 Editors, Graphics Team, Localization Specialists"
+            },
+            {
+                id: 5,
+                title: "Fashion E-Commerce Campaign - LuxeBrand",
+                category: "ecommerce",
+                description: "High-conversion product videos and lifestyle content driving 40% increase in online sales for luxury fashion brand.",
+                thumbnail: "👗",
+                metrics: { conversion: "+40%", products: "200", variants: "15" },
+                details: "Produced 200+ product videos with 15 different creative variants for A/B testing. Combined lifestyle shots with detailed product showcases, resulting in significant conversion rate improvements across all product categories.",
+                client: "LuxeBrand Fashion",
+                duration: "4 months",
+                team: "Creative Director, Fashion Photographer, Product Specialists, Motion Graphics Artist"
+            },
+            {
+                id: 6,
+                title: "Climate Change Documentary - National Geographic",
+                category: "documentary",
+                description: "Award-nominated environmental documentary exploring climate change impacts across three continents.",
+                thumbnail: "🌍",
+                metrics: { countries: "8", experts: "20", runtime: "90 min" },
+                details: "Feature-length documentary examining climate change impacts across 8 countries. Included interviews with leading climate scientists and affected communities. Shot using eco-friendly production methods and carbon-neutral delivery.",
+                client: "National Geographic Channel",
+                duration: "18 months",
+                team: "Emmy-nominated Director, Environmental Scientists, International Crew Network"
+            },
+            {
+                id: 7,
+                title: "Cinematic Color Grading Masterclass",
+                category: "color-grading",
+                description: "Advanced color grading techniques demonstration for film school partnership and professional development.",
+                thumbnail: "🎨",
+                metrics: { students: "500+", techniques: "25", software: "3" },
+                details: "Comprehensive masterclass covering advanced color grading techniques using DaVinci Resolve, Adobe Premiere Pro, and Final Cut Pro. Included before/after comparisons and industry best practices.",
+                client: "Film Academy Partnership",
+                duration: "2 months",
+                team: "Senior Colorist, Education Specialist, Technical Writer"
+            },
+            {
+                id: 8,
+                title: "Anime Studio Promotional Campaign",
+                category: "anime",
+                description: "Multi-platform promotional content for major anime release, targeting global otaku community.",
+                thumbnail: "🎌",
+                metrics: { platforms: "8", languages: "6", reach: "5M" },
+                details: "Created promotional trailers, character spotlights, and behind-the-scenes content for major anime release. Content optimized for different cultural markets and platform requirements.",
+                client: "Major Anime Studio",
+                duration: "5 months",
+                team: "Anime Specialists, Cultural Consultants, Multi-language Voice Actors"
+            },
+            {
+                id: 9,
+                title: "Super Bowl Commercial - National Brand",
+                category: "ads",
+                description: "30-second Super Bowl commercial achieving top viewer engagement scores and brand recall metrics.",
+                thumbnail: "🏈",
+                metrics: { reach: "100M", recall: "89%", engagement: "15.2%" },
+                details: "Produced high-budget Super Bowl commercial with celebrity talent, achieving highest brand recall scores in client's advertising history. Included extended digital campaign and behind-the-scenes content.",
+                client: "Confidential National Brand",
+                duration: "8 months",
+                team: "Award-winning Director, Celebrity Talent, 50+ Crew Members"
+            },
+            {
+                id: 10,
+                title: "Viral TikTok Campaign - Gen Z Brand",
+                category: "short-form",
+                description: "Multi-creator TikTok campaign generating 50M+ views and establishing brand presence among Gen Z audience.",
+                thumbnail: "📱",
+                metrics: { creators: "25", videos: "100+", views: "50M+" },
+                details: "Coordinated campaign with 25 top TikTok creators across various niches. Developed branded content that felt authentic to each creator's style while maintaining brand consistency.",
+                client: "Gen Z Lifestyle Brand",
+                duration: "3 months",
+                team: "Social Media Director, Influencer Relations, Content Strategists"
+            },
+            {
+                id: 11,
+                title: "Executive Leadership Series - S&P 500",
+                category: "long-form",
+                description: "Thought leadership video series featuring C-suite executives discussing industry trends and company vision.",
+                thumbnail: "👔",
+                metrics: { episodes: "12", executives: "8", distribution: "Global" },
+                details: "Professional interview series with top-tier lighting, audio, and post-production. Content used for investor relations, recruitment, and thought leadership positioning.",
+                client: "S&P 500 Technology Company",
+                duration: "6 months",
+                team: "Corporate Communications Director, Interview Specialist, Post-Production Team"
+            },
+            {
+                id: 12,
+                title: "Championship Gaming Tournament",
+                category: "gaming",
+                description: "Complete production of international gaming championship with live streaming, highlight packages, and social content.",
+                thumbnail: "🏆",
+                metrics: { prize: "$1M", countries: "20", viewers: "500K" },
+                details: "Managed all video production aspects of $1M gaming championship including live broadcast, instant highlights, social media content, and post-event documentary.",
+                client: "International Gaming Federation",
+                duration: "4 months prep + 1 week event",
+                team: "Broadcast Producer, Technical Directors, Social Media Team, Documentary Crew"
+            }
+        ];
+
+        // Generate professional portfolio items
+        function generatePortfolioItems(items) {
+            const grid = document.getElementById('portfolioGrid');
+            grid.innerHTML = '';
+            
+            items.forEach((item, index) => {
+                const portfolioItem = document.createElement('div');
+                portfolioItem.className = 'portfolio-item';
+                portfolioItem.dataset.category = item.category;
+                portfolioItem.style.animationDelay = `${index * 0.1}s`;
+                
+                // Create metrics display
+                const metricsHtml = Object.entries(item.metrics).map(([key, value]) => 
+                    `<div class="metric"><span>📊</span> ${key}: ${value}</div>`
+                ).join('');
+                
+                portfolioItem.innerHTML = `
+                    <div class="item-thumbnail">
+                        <div class="item-overlay"></div>
+                        <div class="thumbnail-content">
+                            <div class="play-icon">▶</div>
+                            <div class="thumbnail-text">View Project Details</div>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-category">${item.category.replace('-', ' ')}</div>
+                        <h3 class="item-title">${item.title}</h3>
+                        <p class="item-description">${item.description}</p>
+                        <div class="item-metrics">${metricsHtml}</div>
+                    </div>
+                `;
+                
+                portfolioItem.addEventListener('click', () => openModal(item));
+                grid.appendChild(portfolioItem);
+            });
+            
+            // Trigger animation
+            setTimeout(() => {
+                document.querySelectorAll('.portfolio-item').forEach(item => {
+                    item.style.animation = 'fadeInUp 0.6s ease forwards';
+                });
+            }, 100);
+        }
+
+        // Professional filter functionality
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button with smooth transition
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter items with animation
+                    const filter = button.dataset.filter;
+                    const filteredItems = filter === 'all' 
+                        ? portfolioData 
+                        : portfolioData.filter(item => item.category === filter);
+                    
+                    // Fade out, update, fade in
+                    const grid = document.getElementById('portfolioGrid');
+                    grid.style.opacity = '0';
+                    grid.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        generatePortfolioItems(filteredItems);
+                        grid.style.opacity = '1';
+                        grid.style.transform = 'translateY(0)';
+                    }, 200);
+                });
+            });
+        }
+
+        // Professional modal with detailed information
+        function openModal(item) {
+            const modal = document.getElementById('videoModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            const metricsHtml = Object.entries(item.metrics).map(([key, value]) => 
+                `<div style="background: rgba(30, 144, 255, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #1e90ff; margin-bottom: 0.5rem;">${value}</div>
+                    <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; text-transform: uppercase;">${key}</div>
+                </div>`
+            ).join('');
+            
+            modalBody.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-category">${item.category.replace('-', ' ')}</div>
+                    <h2 class="modal-title">${item.title}</h2>
+                </div>
+                
+                <div class="modal-video-preview">
+                    <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.7;">${item.thumbnail}</div>
+                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; margin-bottom: 1rem;">Professional Video Preview</div>
+                    <div style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem;">Full project showcase available upon request</div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    ${metricsHtml}
+                </div>
+                
+                <div class="modal-description">
+                    <p style="margin-bottom: 1.5rem;"><strong>Project Overview:</strong> ${item.details}</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h4 style="color: #1e90ff; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Client</h4>
+                            <p style="color: rgba(255, 255, 255, 0.9);">${item.client}</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #1e90ff; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Duration</h4>
+                            <p style="color: rgba(255, 255, 255, 0.9);">${item.duration}</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #1e90ff; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Team</h4>
+                            <p style="color: rgba(255, 255, 255, 0.9);">${item.team}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <a href="#contact" class="btn-primary" onclick="closeModal()">Request Similar Project</a>
+                    <button class="btn-secondary" onclick="closeModal()">View More Work</button>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Add entrance animation
+            setTimeout(() => {
+                modal.querySelector('.modal-content').style.animation = 'fadeInUp 0.4s ease forwards';
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const content = modal.querySelector('.modal-content');
+            
+            content.style.animation = 'fadeOut 0.3s ease forwards';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Professional header scroll effects
+        function setupScrollEffects() {
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY;
+                
+                if (scrolled > 100) {
+                    header.style.background = 'rgba(15, 15, 15, 0.98)';
+                    header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.2)';
+                    header.style.backdropFilter = 'blur(20px) saturate(180%)';
+                } else {
+                    header.style.background = 'rgba(15, 15, 15, 0.95)';
+                    header.style.boxShadow = 'none';
+                    header.style.backdropFilter = 'blur(20px) saturate(180%)';
+                }
+                
+                // Parallax effect for hero section
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        }
+
+        // Professional smooth scrolling
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = 80;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Intersection Observer for animations
+        function setupAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-item h3');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const animate = () => {
+                    const value = +counter.getAttribute('data-target') || +counter.innerText.replace(/\D/g, '');
+                    const data = +counter.innerText.replace(/\D/g, '');
+                    const time = value / speed;
+
+                    if (data < value) {
+                        const increment = Math.ceil(time);
+                        const newValue = data + increment;
+                        const suffix = counter.innerText.replace(/\d/g, '');
+                        counter.innerText = newValue + suffix;
+                        setTimeout(animate, 1);
+                    } else {
+                        counter.innerText = counter.getAttribute('data-original') || counter.innerText;
+                    }
+                };
+                
+                // Set original values for animation
+                counter.setAttribute('data-original', counter.innerText);
+                counter.setAttribute('data-target', counter.innerText.replace(/\D/g, ''));
+                
+                // Start animation when visible
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        animate();
+                        observer.unobserve(counter);
+                    }
+                });
+                
+                observer.observe(counter);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            generatePortfolioItems(portfolioData);
+            setupFilters();
+            setupScrollEffects();
+            setupSmoothScroll();
+            setupAnimations();
+            animateCounters();
+            
+            // Modal close events
+            document.querySelector('.close').addEventListener('click', closeModal);
+            document.getElementById('videoModal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+            
+            // Escape key to close modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        });
+
+        // Add fadeOut keyframes for modal close animation
+        const additionalStyles = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                to { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            }
+            
+            .portfolio-grid {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        `;
+        
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = additionalStyles;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
